@@ -1,0 +1,4 @@
+// get the count of all the documents
+db.school.count();
+exit;
+
