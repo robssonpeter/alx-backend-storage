@@ -6,5 +6,5 @@ def schools_by_topic(mongo_collection, topic):
     """" THe function that fetches data based on topic """
     result = mongo_collection.find({"topic": topic})
     if result:
-        return list(result)
+        return result
     return []
