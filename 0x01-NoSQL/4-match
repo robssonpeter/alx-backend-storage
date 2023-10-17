@@ -1,0 +1,4 @@
+// Find all entries matching a specific  criteria
+db.school.find({name: "Holberton school"});
+exit;
+
