@@ -1,0 +1,3 @@
+// The script to search by using regex
+db.school.find({name: {$regex: '^Holberton'}});
+exit;
