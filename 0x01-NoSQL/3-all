@@ -1,0 +1,4 @@
+// THe script to find all entries
+db.school.find();
+exit;
+
