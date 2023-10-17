@@ -1,0 +1,5 @@
+// The script to insert a new entry to db
+db.school.insertOne({
+	name: "Holberton school"
+});
+
