@@ -5,5 +5,5 @@ import json
 
 def insert_school(mongo_collection, **kwargs):
     """ THe function that will insert a new entry to db """
-    inserted = mongo_collection.insertOne(json.dumps(kwargs))
+    inserted = mongo_collection.insert_one(json.dumps(kwargs))
     return inserted.inserted_id
