@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 """ A python script to insert a ne item """
-import json
 
 
 def insert_school(mongo_collection, **kwargs):
