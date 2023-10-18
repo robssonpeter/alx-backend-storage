@@ -23,3 +23,18 @@ class Cache:
         else:
             raise ValueError("type only str, bytes, int and float allowed")
         return key
+
+    def get(self, key: str, fn: callable) -> str:
+        """ The function to retrive a key from db """
+        res = self.__redis.get(key)
+        if res:
+            return fn(res)
+        return None
+
+    def get_str(self, key: str) -> str:
+        """ Parameterise the string """
+        return self.get(key, str)
+
+    def get_int(self, key: str) -> str:
+        """ Parameterise the int from db """
+        return self.get(key, int)
