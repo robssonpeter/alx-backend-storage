@@ -2,11 +2,17 @@
 """ The script to Create a Cache Class """
 import redis
 import uuid
-from typing import Union
+from typing import Union, Callable
+
+def count_calls(method: Callable) -> Callable:
+    def wrapper():
+        key = f"{method.__class__.__qualname__}.{method.__name__}"
+        count = method._redis.incr(key)
 
 
 class Cache:
     """ The class cache for implementing redis """
+
 
     def __init__(self) -> None:
         self.__redis = redis.Redis()
@@ -24,7 +30,7 @@ class Cache:
             raise ValueError("type only str, bytes, int and float allowed")
         return key
 
-    def get(self, key: str, fn: callable) -> str:
+    def get(self, key: str, fn: Callable) -> str:
         """ The function to retrive a key from db """
         res = self.__redis.get(key)
         if res:
