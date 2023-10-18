@@ -11,6 +11,7 @@ def count_calls(method: Callable) -> Callable:
         count = method._redis.incr(key)
 
 
+@count_calls
 class Cache:
     """ The class cache for implementing redis """
 
