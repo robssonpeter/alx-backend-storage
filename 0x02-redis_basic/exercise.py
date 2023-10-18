@@ -29,7 +29,7 @@ class Cache:
         res = self.__redis.get(key)
         if res:
             return fn(res)
-        return None
+        return res
 
     def get_str(self, key: str) -> str:
         """ Parameterise the string """
