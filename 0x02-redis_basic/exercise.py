@@ -4,6 +4,7 @@ import redis
 import uuid
 from typing import Union, Callable
 
+
 def count_calls(method: Callable) -> Callable:
     def wrapper():
         key = f"{method.__class__.__qualname__}.{method.__name__}"
@@ -12,7 +13,6 @@ def count_calls(method: Callable) -> Callable:
 
 class Cache:
     """ The class cache for implementing redis """
-
 
     def __init__(self) -> None:
         self.__redis = redis.Redis()
